@@ -1,0 +1,14 @@
+<div class="cart-item">
+  <span>{{ cartItem.productName }} </span>
+  <span
+    ><strong>{{ cartItem.price }}</strong>
+  </span>
+  * <span>{{ cartItem.qty }}</span
+  >:
+  <strong>{{ cartItem.price * cartItem.qty | currency: "EUR" }}</strong>
+  <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-danger" (click)="removeItem()">
+      X
+    </button>
+  </div>
+</div>
