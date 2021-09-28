@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,15 +22,11 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  public getProducts(): any {
-    return this.http.get<Product[]>('http://localhost:3000/products').pipe(
-      map((res: any) => {
-        return res;
-      })
-    );
+  public getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('http://localhost:3000/products');
   }
 
-  public getProduct(id: any): any {
+  public getProduct(id: any): Observable<Product> {
     console.log(`Service one product`);
     console.log(`given id ${id}`);
 
@@ -47,34 +44,20 @@ export class ProductService {
     console.log('im creating');
     console.log(data);
 
-    return this.http.post<any>('http://localhost:3000/products', data).pipe(
-      map((res: any) => {
-        return res;
-      })
-    );
+    return this.http.post('http://localhost:3000/products', data);
   }
 
   public update(data: any, id: any) {
     console.log('im patching');
     console.log(data);
 
-    return this.http
-      .patch<any>(`http://localhost:3000/products/${id}`, data)
-      .pipe(
-        map((res: any) => {
-          return res;
-        })
-      );
+    return this.http.patch(`http://localhost:3000/products/${id}`, data);
   }
 
   public deleteProduct(id: any) {
     console.log('im deleteing');
     console.log(id);
 
-    return this.http.delete<any>(`http://localhost:3000/products/${id}`).pipe(
-      map((res: any) => {
-        return res;
-      })
-    );
+    return this.http.delete(`http://localhost:3000/products/${id}`);
   }
 }
