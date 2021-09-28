@@ -1,7 +1,8 @@
 <div class="card shadow-sm">
   <img
     class="bd-placeholder-img card-img-top"
-    width="100%"
+    width="200px"
+    height="200px"
     [src]="productItem.imageUrl"
   />
   <div class="card-body">
@@ -20,7 +21,11 @@
         >
           Add to cart
         </button>
-        <button type="button" class="btn btn-sm btn-outline-secondary btn-sm">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary btn-sm"
+          (click)="goToDetailedView()"
+        >
           View detailed page
         </button>
       </div>
