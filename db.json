@@ -1,0 +1,51 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "chocolate",
+      "description": "typicode",
+      "imageUrl": "https://www.biggerbolderbaking.com/wp-content/uploads/2017/07/1C5A8967.jpg",
+      "price": 110
+    },
+    {
+      "id": 3,
+      "name": "chocolate",
+      "description": "typicode",
+      "imageUrl": "https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/2021_kid%E2%80%99s-favorite-butter-cookie_ice-cream-sandwich_18781_600x600.jpg?ext=.jpg",
+      "price": 130
+    },
+    {
+      "id": 4,
+      "name": "chocolate",
+      "description": "typicode",
+      "imageUrl": "https://bakerbynature.com/wp-content/uploads/2015/05/IMG_1817-2.jpg",
+      "price": 140
+    },
+    {
+      "id": 5,
+      "name": "chocolate",
+      "description": "typicode",
+      "imageUrl": "https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/2021_kid%E2%80%99s-favorite-butter-cookie_ice-cream-sandwich_18781_600x600.jpg?ext=.jpg",
+      "price": 150
+    },
+    {
+      "id": 6,
+      "name": "54",
+      "description": "oppopopo",
+      "price": "55555",
+      "imageUrl": "https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/2021_kid%E2%80%99s-favorite-butter-cookie_ice-cream-sandwich_18781_600x600.jpg?ext=.jpg",
+      "category": "",
+      "size": 0
+    }
+  ],
+  "cartItems": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

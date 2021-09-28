@@ -1,0 +1,123 @@
+<div class="col-md-7 col-lg-8">
+  <div class="d-flex justify-content-between">
+    <button class="w-30 btn btn-primary" (click)="goToDetailedView()">
+      Go back
+    </button>
+    <button class="w-30 btn btn-primary" (click)="addItemToCart()">
+      Add to cart
+    </button>
+    <button (click)="deleteItem(productItem.id)" class="w-30 btn btn-danger">
+      Delete
+    </button>
+  </div>
+  <hr class="my-4" />
+  <form [formGroup]="productForm">
+    <div class="row g-3">
+      <div class="col-sm-6">
+        <label for="name" class="form-label">Name</label>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              productForm.get('name')?.invalid &&
+              productForm.get('name')?.touched
+          }"
+          formControlName="name"
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder=""
+          value="5555"
+          required
+        />
+        <div
+          *ngIf="
+            productForm.get('name')?.invalid && productForm.get('name')?.touched
+          "
+          class="invalid-feedback d-block"
+        >
+          Invalid name.
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="price" class="form-label">Price</label>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              productForm.get('price')?.invalid &&
+              productForm.get('price')?.touched
+          }"
+          formControlName="price"
+          type="text"
+          class="form-control"
+          id="price"
+          placeholder=""
+          value=""
+          required
+        />
+        <div
+          *ngIf="
+            productForm.get('price')?.invalid &&
+            productForm.get('price')?.touched
+          "
+          class="invalid-feedback d-block"
+        >
+          Invalid price.
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="description" class="form-label">Description</label>
+        <div class="input-group has-validation">
+          <input
+            formControlName="description"
+            type="text"
+            class="form-control"
+            id="description"
+            placeholder="description"
+            required
+          />
+          <div class="invalid-feedback">Your username is required.</div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <label for="imageUrl" class="form-label">image url</label>
+        <input
+          formControlName="imageUrl"
+          type="imageUrl"
+          class="form-control"
+          id="imageUrl"
+          placeholder=""
+        />
+        <div class="invalid-feedback">Please enter a valid image</div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="state" class="form-label">Category</label>
+        <select class="form-select" id="category" required>
+          <option value="">Sugary</option>
+          <option>Sour</option>
+        </select>
+        <div class="invalid-feedback">Please provide a category.</div>
+      </div>
+
+      <div class="col-6">
+        <img
+          class="bd-placeholder-img card-img-top"
+          width="50px"
+          height="300px"
+          [src]="productItem.imageUrl"
+        />
+      </div>
+    </div>
+    <button
+      [disabled]="productForm.invalid"
+      class="w-30 btn btn-primary"
+      type="submit"
+      (click)="onSubmit()"
+    >
+      Save
+    </button>
+  </form>
+</div>
