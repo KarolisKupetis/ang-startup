@@ -14,26 +14,13 @@ import { ProductService } from './services/product.service';
 })
 export class ProductResolverService implements Resolve<Product> {
   constructor(private productService: ProductService) {}
-  product!: Product;
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Product {
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<Product> {
     const id = route.params['id'];
-    if (this.product === undefined) {
-      //this.loadProduct(id);
-      this.loadMockedProduct(id);
-    }
 
-    return this.product;
-  }
-
-  loadProduct(id: any) {
-    this.productService.getProduct(id).subscribe((product: Product) => {
-      this.product = product;
-      console.log(product);
-    });
-  }
-
-  loadMockedProduct(id: any) {
-    this.product = this.productService.getProductMocked(id);
+    return this.productService.getProduct(id);
   }
 }

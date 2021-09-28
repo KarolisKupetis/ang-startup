@@ -20,6 +20,6 @@ export class ProductListComponent implements OnInit {
   }
 
   goToDetailedView() {
-    this.router.navigate(['/item', 0]);
+    this.router.navigate(['/item/new']);
   }
 }

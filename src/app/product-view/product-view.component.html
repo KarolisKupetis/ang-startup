@@ -1,8 +1,6 @@
 <div class="col-md-7 col-lg-8">
   <div class="d-flex justify-content-between">
-    <button class="w-30 btn btn-primary" (click)="goToDetailedView()">
-      Go back
-    </button>
+    <a class="w-30 btn btn-primary" routerLink="/items"> Go back </a>
     <button class="w-30 btn btn-primary" (click)="addItemToCart()">
       Add to cart
     </button>
@@ -11,15 +9,13 @@
     </button>
   </div>
   <hr class="my-4" />
-  <form [formGroup]="productForm">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div class="row g-3">
       <div class="col-sm-6">
         <label for="name" class="form-label">Name</label>
         <input
           [ngClass]="{
-            'is-invalid':
-              productForm.get('name')?.invalid &&
-              productForm.get('name')?.touched
+            'is-invalid': name?.invalid && name?.touched
           }"
           formControlName="name"
           type="text"
@@ -30,9 +26,7 @@
           required
         />
         <div
-          *ngIf="
-            productForm.get('name')?.invalid && productForm.get('name')?.touched
-          "
+          *ngIf="name?.invalid && name?.touched"
           class="invalid-feedback d-block"
         >
           Invalid name.
@@ -43,9 +37,7 @@
         <label for="price" class="form-label">Price</label>
         <input
           [ngClass]="{
-            'is-invalid':
-              productForm.get('price')?.invalid &&
-              productForm.get('price')?.touched
+            'is-invalid': price?.invalid && price?.touched
           }"
           formControlName="price"
           type="text"
@@ -56,10 +48,7 @@
           required
         />
         <div
-          *ngIf="
-            productForm.get('price')?.invalid &&
-            productForm.get('price')?.touched
-          "
+          *ngIf="price?.invalid && price?.touched"
           class="invalid-feedback d-block"
         >
           Invalid price.
@@ -115,7 +104,6 @@
       [disabled]="productForm.invalid"
       class="w-30 btn btn-primary"
       type="submit"
-      (click)="onSubmit()"
     >
       Save
     </button>

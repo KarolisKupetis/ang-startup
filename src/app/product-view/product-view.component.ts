@@ -35,33 +35,23 @@ export class ProductViewComponent implements OnInit {
     private productService: ProductService
   ) {}
 
+  get name() {
+    return this.productForm.get('name');
+  }
+
+  get price() {
+    return this.productForm.get('price');
+  }
+
   addItemToCart() {
     this.cartService.addItem(this.productItem);
   }
 
-  goToDetailedView() {
-    console.log(`clicked route ${this.productItem.id}`);
-
-    this.router.navigate(['/items']);
-  }
-
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(
-      (data) => (this.productItem = data.product)
-    );
-
-    this.initializeForm();
-  }
-
-  initializeForm() {
-    if (this.productItem) {
-      this.productForm = this.fb.group({
-        name: this.productItem.name,
-        price: this.productItem.price,
-        description: this.productItem.description,
-        imageUrl: this.productItem.imageUrl,
-      });
-    }
+    this.activatedRoute.data.subscribe((data) => {
+      this.productItem = data.product;
+      this.productForm.patchValue(this.productItem);
+    });
   }
 
   deleteItem(id: any) {
